@@ -1,14 +1,20 @@
 <template>
    <div class="available">
-      <h3 class="available__title" title="Из вещей на выбор">
-         Выбранные вещи
-      </h3>
+         <div v-if="selectAvailable" class="available__item">
+         {{ selectAvailable?.name }}
+      </div>
    </div>
 </template>
 
 <script>
    export default {
-      
+      props: {
+         selectAvailable: {
+            type: Object,
+            require: false,
+            default: null,
+         }
+      }
    }
 </script>
 
@@ -16,23 +22,18 @@
 
 .available {
    width: 25%;
-   height: 20vh;
+   height: 25vh;
    border: 2px solid black;
    padding: 10px;
    position: relative;
    background: white;
-   &__title {
-      position: absolute;
-      top: -50px;
-      left: 50%;
-      transform: translate(-50%, 0);
-      font-size: 18px;
-      background: orange;
-      color: rgb(120, 78, 0);
-      padding: 5px 10px;
-      border-radius: 5px 5px 0 0;
-      z-index: -1;
-      cursor: help;
+   &__item {
+      border: 2px solid green;
+      width: 75px;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
 }
 </style>

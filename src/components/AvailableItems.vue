@@ -1,9 +1,6 @@
 <template>
    <div class="available">
-      <h3 class="available__title">
-         Вещи на выбор
-      </h3>
-      <div v-for="item of allAvailableItems" :key="item.id" class="available__items">
+      <div v-for="item of allAvailableItems" :key="item.id" class="available__items" @click="$emit('select-available', item);">
          {{ item.name }}
       </div>
    </div>
@@ -48,7 +45,7 @@
       }
 ]
          }
-      }
+      },
    }
 </script>
 
@@ -76,18 +73,6 @@
          border: 2px solid orange;
          cursor: pointer;
       }
-   }
-   &__title {
-      position: absolute;
-      top: -50px;
-      left: 50%;
-      transform: translate(-50%, 0);
-      font-size: 18px;
-      background: orange;
-      color: rgb(120, 78, 0);
-      padding: 5px 10px;
-      border-radius: 5px 5px 0 0;
-      z-index: -1;
    }
 }
 </style>

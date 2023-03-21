@@ -1,7 +1,6 @@
 <template>
    <div class="user">
-      <h3 class="user__title">Вещи у пользователя</h3>
-      <div class="user__item" v-for="item in allItems" :key="item.id">
+      <div class="user__item" v-for="item in allItems" :key="item.id" @click="$emit('select-user-click', item)">
             {{ item.name }}
       </div>
    </div>
